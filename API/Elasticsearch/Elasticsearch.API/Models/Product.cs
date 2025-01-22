@@ -23,7 +23,7 @@ namespace Elasticsearch.API.Models
             if (Feature == null) return new ProductDto(Id, Name, Price, Stock, null);
 
             return new ProductDto(Id, Name, Price, Stock,
-                new ProductFeatureDto(Feature.Width, Feature.Height, Feature.Color));
+                new ProductFeatureDto(Feature.Width, Feature.Height, Feature.Color.ToString()));
         }
 
     }
