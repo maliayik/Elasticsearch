@@ -16,8 +16,8 @@ namespace Elasticsearch.API.Repositories
         {
             newProduct.Created = DateTime.Now;
 
-            //product indexine yeni bir doküman eklemek için kullanılır.
-            var response = await _elasticClient.IndexAsync(newProduct,x=> x.Index("products"));
+            //product indexine yeni bir doküman eklemek için kullanılır.Id değerini uygulamamız üzerinden üretiyoruz, yoksa elasticsearch id değeri üretir.
+            var response = await _elasticClient.IndexAsync(newProduct,x=> x.Index("products").Id(Guid.NewGuid().ToString()));
 
             if (!response.IsValid) return null;
 
