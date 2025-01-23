@@ -37,13 +37,15 @@ namespace Elasticsearch.API.Controllers
         /// <summary>
         /// Product datasını güncelleme işlemini yapar.
         /// </summary>
-
         [HttpPut]
         public async Task<IActionResult> Update(ProductUpdateDto updateProduct)
         {
             return CreateActionResult(await productservice.UpdateAsync(updateProduct));
         }
 
+        /// <summary>
+        /// id'ye göre silme işlemi yapılır.
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteById(string id)
         {

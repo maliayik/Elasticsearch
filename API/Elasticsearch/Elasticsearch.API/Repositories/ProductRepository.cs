@@ -63,11 +63,17 @@ namespace Elasticsearch.API.Repositories
             return response.IsValid;
         }
 
-        public async Task<bool> DeleteAsync(string id)
+
+        /// <summary>
+        /// Hata yönetimi için bu metot ele alınmıştır.
+        /// </summary>
+        public async Task<DeleteResponse> DeleteAsync(string id)
         {
            var response= await _elasticClient.DeleteAsync<Product>(id, x => x.Index(indexName));
-           
-           return response.IsValid;
+
+           return response;
         }
+
+        
     }
 }
