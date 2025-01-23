@@ -5,7 +5,7 @@ namespace Elasticsearch.API.DTOs
     //record kullanmamızın sebebi sadece okunabilir olmasıdır, bu sayede DTO'larımızın propertysi immutable(değiştirilemez) olmasını sağlamış oluruz.
     public record ProductCreateDto(string Name, decimal Price, int Stock, ProductFeatureDto Feature)
     {
-        //Dto mapleme işlemi mapper kullanmadığımızdan burada yaptık.
+        //Dto mapleme işlemi için mapper kullanmadığımızdan burada yaptık.
 
         public Product CreateProduct()
         {
