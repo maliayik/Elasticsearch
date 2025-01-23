@@ -1,13 +1,10 @@
 ﻿using System.Reflection.Metadata.Ecma335;
 using Elasticsearch.API.DTOs;
-using Nest;
 
 namespace Elasticsearch.API.Models
 {
     public class Product
     {
-        //elasticsearch id değerine karşılık geldiğini belirtmek için kullanılır.
-        [PropertyName("_id")]
         public string Id { get; set; } = null!;
         public string Name { get; set; } = null!;
         public decimal Price { get; set; }
