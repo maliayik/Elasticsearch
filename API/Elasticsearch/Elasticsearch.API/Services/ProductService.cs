@@ -67,5 +67,17 @@ namespace Elasticsearch.API.Services
 
             return ResponseDto<bool>.Success(true,HttpStatusCode.NoContent);
         }
+
+        public async Task<ResponseDto<bool>> DeleteAsync(string id)
+        {
+            var isSuccess=await _productRepository.DeleteAsync(id);
+
+            if (!isSuccess)
+            {
+                return ResponseDto<bool>.Fail(new List<string> { "silme esnasında hata meydana geldi" }, HttpStatusCode.InternalServerError);
+            }
+
+            return ResponseDto<bool>.Success(true, HttpStatusCode.NoContent);
+        }
     }
 }
